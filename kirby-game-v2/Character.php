@@ -1,4 +1,5 @@
 <?php
+require_once 'config.php';
 abstract class AbstractCharacter {
     public string $name;
     public int $hp;
