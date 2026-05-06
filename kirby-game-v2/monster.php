@@ -1,5 +1,4 @@
 <?php
-
 require_once 'character.php' ;
 
 class Monster extends AbstractCharacter{
@@ -11,8 +10,8 @@ class Monster extends AbstractCharacter{
     public function hpbar(): string{
         return $this -> buildHpBar(COLOR_MONSTER);
     }
-
-
-
+    public static function fromDB(array $row): static{
+        return new static ($row['name'],$row['hp'],$row['attack'],$row['defense']);
+    }
 }
 ?>

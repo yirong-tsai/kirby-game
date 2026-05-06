@@ -11,7 +11,8 @@ class Hero extends AbstractCharacter{
     public function hpbar(): string{
         return $this -> buildHpBar(COLOR_HERO);
     }
-
+    public static function fromDB(array $row):static{
+        return new static ($row['name'],$row['job'],$row['hp'],$row['attack'],$row['defense']);
+    }
 }
-
 ?>
