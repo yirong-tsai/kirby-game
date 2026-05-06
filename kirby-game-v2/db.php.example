@@ -1,0 +1,23 @@
+<?php
+
+
+$host    = 'localhost';
+$db      = 'kirby_game';
+$user    = 'root';
+$pass    = ' '; // 請在此填入你的密碼並更名為 db.php
+$charset = 'utf8mb4';
+
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+
+$options = [
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,  // 錯誤立刻報錯
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,        // 用欄位名稱取資料
+    PDO::ATTR_EMULATE_PREPARES   => false,                   // 型別正確、更安全
+];
+
+try {
+    $pdo = new PDO($dsn, $user, $pass, $options);
+    return $pdo;
+} catch (\PDOException $e) {
+    die("資料庫連接失敗：" . $e->getMessage() . "\n");
+}
